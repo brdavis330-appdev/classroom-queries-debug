@@ -10,4 +10,8 @@
 #  department_id :integer
 #
 class Course < ApplicationRecord
+  belongs_to :department
+  # def department
+  #   Department.where({ :id => self.department_id }).at(0)
+  # end
 end

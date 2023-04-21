@@ -1,5 +1,6 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
+
     <h1>
       Student #<%= @the_student.id %> details
     </h1>
@@ -38,7 +39,7 @@
         Number of courses
       </dt>
       <dd>
-        <%= Enrollment.where({ :student_id => @the_student.id }).count %>
+        <%= Enrollment.where({ :student_id => @the_student }).count %>
       </dd>
     </dl>
   </div>
@@ -49,7 +50,7 @@
 
 <h3>Course Load</h3>
 <ul>
-  <% enrollments = Enrollment.where({:student_id => @the_student.id }) %>
+  <% enrollments = Enrollment.where({:student_id => @the_student }) %>
   <% enrollments.each do |enrollment| %>
     <li>
       <% course = Course.where({ :id => enrollment.course_id }).at(0) %>
